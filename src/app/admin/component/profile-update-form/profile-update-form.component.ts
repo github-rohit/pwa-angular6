@@ -9,7 +9,7 @@ import { ToastComponent } from '../../../shared/component/toast/toast.component'
 @Component({
   selector: 'profile-update-form',
   templateUrl: './profile-update-form.component.html',
-  styleUrls: ['./profile-update-form.component.css']
+  styleUrls: ['./profile-update-form.component.scss']
 })
 export class ProfileUpdateFormComponent implements OnInit {
   toast = {};
@@ -63,8 +63,6 @@ export class ProfileUpdateFormComponent implements OnInit {
       tumblr: [this.user.tumblr],
       pinterest: [this.user.pinterest]
     });
-
-    console.log(this.form)
 
   }
 

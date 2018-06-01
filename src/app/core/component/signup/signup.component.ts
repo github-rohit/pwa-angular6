@@ -8,7 +8,7 @@ import { Component, OnInit, Renderer2, OnDestroy } from '@angular/core';
 @Component({
   selector: 'sign-up',
   templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.css']
+  styleUrls: ['./signup.component.scss']
 })
 export class SignupComponent implements OnInit, OnDestroy {
   subscription: Subscription;

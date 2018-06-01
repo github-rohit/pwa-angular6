@@ -7,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 @Component({
   selector: 'post-comment',
   templateUrl: './post-comment.component.html',
-  styleUrls: ['./post-comment.component.css']
+  styleUrls: ['./post-comment.component.scss']
 })
 export class PostCommentComponent implements OnInit {
   // tslint:disable-next-line:no-input-rename

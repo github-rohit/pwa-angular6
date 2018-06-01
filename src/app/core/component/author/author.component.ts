@@ -7,7 +7,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 @Component({
   selector: 'app-author',
   templateUrl: './author.component.html',
-  styleUrls: ['./author.component.css']
+  styleUrls: ['./author.component.scss']
 })
 export class AuthorComponent implements OnInit, OnDestroy {
   paramSubscription: Subscription;

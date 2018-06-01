@@ -7,7 +7,7 @@ import { Subscription } from 'rxjs';
 @Component({
   selector: 'email-verifier',
   templateUrl: './email-verifier.component.html',
-  styleUrls: ['./email-verifier.component.css']
+  styleUrls: ['./email-verifier.component.scss']
 })
 export class EmailVerifierComponent implements OnInit, OnDestroy {
   error;

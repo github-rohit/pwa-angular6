@@ -5,7 +5,7 @@ import { Component, OnInit, Input } from '@angular/core';
 @Component({
   selector: 'post-paginator',
   templateUrl: './post-paginator.component.html',
-  styleUrls: ['./post-paginator.component.css']
+  styleUrls: ['./post-paginator.component.scss']
 })
 export class PostPaginatorComponent implements OnInit {
   @Input('length') length: 10;

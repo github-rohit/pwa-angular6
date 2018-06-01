@@ -6,9 +6,10 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit, OnDestroy, Renderer2 } from '@angular/core';
 
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: 'login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.scss']
 })
 
 export class LoginComponent implements OnInit, OnDestroy {

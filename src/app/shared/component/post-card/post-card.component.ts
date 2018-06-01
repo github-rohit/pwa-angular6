@@ -5,7 +5,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 @Component({
   selector: 'post-card',
   templateUrl: './post-card.component.html',
-  styleUrls: ['./post-card.component.css']
+  styleUrls: ['./post-card.component.scss']
 })
 export class PostCardComponent {
   @Input('post') post: Post;

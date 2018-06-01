@@ -9,7 +9,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 @Component({
   selector: 'my-posts',
   templateUrl: './my-posts.component.html',
-  styleUrls: ['./my-posts.component.css']
+  styleUrls: ['./my-posts.component.scss']
 })
 export class MyPostsComponent implements OnDestroy {
   paramSubscription: Subscription;

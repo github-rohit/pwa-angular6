@@ -12,7 +12,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 @Component({
   selector: 'post-single',
   templateUrl: './post-single.component.html',
-  styleUrls: ['./post-single.component.css']
+  styleUrls: ['./post-single.component.scss']
 })
 export class PostSingleComponent implements OnDestroy {
   subscription: Subscription;

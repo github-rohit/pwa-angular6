@@ -8,7 +8,7 @@ import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 @Component({
   selector: 'post-filter',
   templateUrl: './post-filter.component.html',
-  styleUrls: ['./post-filter.component.css']
+  styleUrls: ['./post-filter.component.scss']
 })
 export class PostFilterComponent implements OnInit, OnDestroy {
   @Input('selectedCategory') selectedCategory: string;

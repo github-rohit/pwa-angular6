@@ -195,11 +195,10 @@
       }
     }
   },
-  "defaultProject": "blog2.0",
+  "defaultProject": "pwa angular6",
   "schematics": {
     "@schematics/angular:component": {
-      "prefix": "",
-      "styleext": "css"
+      "styleext": "scss"
     },
     "@schematics/angular:directive": {
       "prefix": ""
