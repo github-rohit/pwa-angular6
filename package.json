@@ -5,12 +5,13 @@
   "scripts": {
     "ng": "ng",
     "start": "node server/server.js",
-    "dev": "concurrently \"ng build --watch\" \" nodemon server/server.js\"",
+    "dev": "ng build --prod && workbox injectManifest",
+    "dev:watch": "ng build --prod -watch",
     "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "postinstall": "ng build --prod"
+    "postinstall": "ng build --prod && workbox injectManifest"
   },
   "private": true,
   "dependencies": {
@@ -27,7 +28,6 @@
     "@angular/platform-browser": "6.0.3",
     "@angular/platform-browser-dynamic": "6.0.3",
     "@angular/router": "6.0.3",
-    "angular2-tag-input": "^1.2.3",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.2",
     "bootstrap": "^4.0.0-beta.3",
@@ -48,7 +48,8 @@
     "tinymce": "^4.7.4",
     "typescript": "2.7.2",
     "validator": "^9.2.0",
-    "zone.js": "~0.8.26"
+    "zone.js": "~0.8.26",
+    "workbox-cli": "^3.2.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.6.6",
@@ -68,6 +69,7 @@
     "karma-jasmine-html-reporter": "^0.2.2",
     "protractor": "~5.1.2",
     "ts-node": "~3.2.0",
-    "tslint": "~5.7.0"
+    "tslint": "~5.7.0",
+    "workbox-cli": "^3.2.0"
   }
 }

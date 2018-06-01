@@ -9,13 +9,11 @@ import { ProfileViewComponent } from './component/profile-view/profile-view.comp
 import { PostFormComponent } from './component/post-form/post-form.component';
 import { MyPostsComponent } from './component/my-posts/my-posts.component';
 import { AutoResizeTextareaDirective } from './directive/auto-resize-textarea.directive';
-import {RlTagInputModule} from 'angular2-tag-input';
 import { UserService } from './services/user.service';
 import { AuthGuard } from '../shared/services/auth-guard.service';
 
 @NgModule({
   imports: [
-    RlTagInputModule,
     SharedModule,
     CommonModule,
     FormsModule,
@@ -49,9 +47,7 @@ import { AuthGuard } from '../shared/services/auth-guard.service';
     MyPostsComponent,
     AutoResizeTextareaDirective
   ],
-  exports: [
-    RlTagInputModule
-  ],
+  exports: [],
   providers: [UserService]
 })
 export class AdminModule { }

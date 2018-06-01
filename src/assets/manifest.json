@@ -1,0 +1,15 @@
+{
+    "name": "Angular 6 | PWA | Blog",
+    "short_name": "PWA", 
+    "start_url": "/",
+    "scope": "/",
+    "description": "Author: Rohit Kumar Gautam, Front End Developer, Key skills: Javascript, CSS3, HTML, HTML5, Jquery, Jquery Plugin, Tinymce, Bootstrap, SASS, handlebarsjs, Chrome extension, Mongo, Express, Angularjs, Angular 4, Angular 5 Node, Grunt, Single Page Application, Progressive Web Apps (PWA)",
+    "display": "standalone",
+    "lang": "en-US",
+    "theme_color": "#3f51b5",
+    "background_color": "#FFF",
+    "icons":[{
+        "src": "images/logo_blue.png",
+        "sizes": "72x72 96x96 128x128 192x192 256x256 512x512"
+    }]
+}
