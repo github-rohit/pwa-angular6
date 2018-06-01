@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-9">
+      <div *ngIf="post">
+        <div class="ui-post-page">
+          <h1 class="post-title">{{post.title}}</h1>
+          <div class="byline small">
+            <i>BY
+              <a [routerLink]="['/author/', post.created_by, post.author[0].name | replaceWithDash]">{{post.author[0].name}}</a>
+            </i>
+            <i class="fa fa-circle"></i>
+            {{post.created_on | date: 'MMM d, y'}}
+          </div>
+          <hr>
+          <div class="description">
+            <img *ngIf="post.image" [src]="post.image">
+            <div [innerHTML]="post.description"></div>
+          </div>
+          <div>
+              <span *ngIf="post.category && post.category.toString() !== 'Uncategorized' && post.category.toString() !== ''">
+                <a [routerLink]="['/']" [queryParams]="{category: c}" *ngFor="let c of post.category">
+                  <span class="badge badge-pill badge-secondary">{{c}}</span>
+                </a>
+              </span>
+              <span *ngIf="post.tags && post.tags.length">
+                <a *ngFor="let tag of post.tags" [routerLink]="['/']" [queryParams]="{tags: tag.text}">
+                  <span class="badge badge-pill badge-secondary">{{tag.text}}</span>
+                </a>
+              </span>
+            </div>
+        </div>
+        <post-comment *ngIf="!preview" [post-id]="postId"></post-comment>
+      </div>
+    </div>
+    <div class="col-md-3 mobile-hide tab-small-hide">
+      <app-category></app-category>
+    </div>
+  </div>
+</div>

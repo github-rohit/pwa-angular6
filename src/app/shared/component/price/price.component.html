@@ -1,0 +1,51 @@
+<div id="plan">
+    <ng-container *ngFor="let plan of plans">
+        <div [ngClass]="{'plan-checked-margin-transition':plan.checked, 'plan-unchecked-margin-transition':!plan.checked}" class="plan col-md-6 plan-unchecked-margin-transition">
+            <div id="planMainContainer" class="plan-details-main">
+                <div id="salesPitchContainer0" [ngClass]="{'sales-pitch-container': plan.salesPitch, 'sales-pitch-container-hidden': !plan.salesPitch}" class="text-uppercase sales-pitch-container">{{plan.salesPitch}}</div>
+                <div id="planClickContainer0" tabindex="-1" class="plan-details-sub">
+                    <div ng-model="plan.checked" id="planDetailsContainer0" class="plan-details-container ng-pristine ng-untouched ng-valid ng-not-empty" aria-invalid="false">
+                        <a href="" class="plan-description-link"><span class="plan-description">{{plan.label}}</span><span ng-if="plan.salesPitch" class="offscreen">{{plan.salesPitch}}</span></a>
+                        <div id="planPriceContainer" class="plan-price-container">
+                            <div [hidden]="currencyRtl || isMeeting" class="currency-symbol-before" aria-hidden="false">$</div>
+                            <div [hidden]="isMeeting" class="price-dollars" aria-hidden="false">{{plan.price}}</div>
+                            
+                            <div [hidden]="isMeeting" [ngClass]="isFlat ? 'replace-flat' : ''" class="price-cents" aria-hidden="false">07</div>
+                            <div [hidden]="!currencyRtl" class="currency-symbol-after ng-hide" aria-hidden="true"> $</div>
+                            <!---->
+                            <div [hidden]="isMeeting" *ngIf="planPeriod" class="plan-period" aria-hidden="false">{{plan.period}}</div>
+                            <!---->
+                            <div [hidden]="!isMeeting" class="plan-find-meeting-location ng-hide" aria-hidden="true"></div>
+                            <!---->
+                         </div>
+                         <div [ngClass]="{'plan-popup-div-container':plan.specialOffer, 'plan-popup-div-container-hidden':!plan.specialOffer}" class="plan-popup-div-container">
+                            <a id="planPageTooltip0" href="javascript:;" *ngIf="plan.specialOffer && plan.promoContent">
+                                <span class="special-offer">{{plan.specialOffer}}</span>
+                                <span class="icon icon-block icon-white-popup"></span>
+                            </a>
+                         </div>
+                    </div>
+                    <a href="#"  [ngClass]="{'plan-view-container': !plan.checked, 'plan-view-container-selected': plan.checked}" id="planViewContainer0" aria-expanded="false" class="plan-view-container">
+                      <span class="text-uppercase white">View Details and Continue<span ng-bind-html="plan.label" class="offscreen">3-Month</span></span><span class="pull-right icon icon-block icon-arrow-down-circle"></span>
+                    </a>
+                </div>
+                <div [ngClass]="{'slide-up':plan.checked, 'slide-down':!plan.checked}" id="priceDetailsContainer0" class="price-details-container slide-up">
+                  <ng-container *ngFor="let price of plan.planDetails">
+                    <div *ngIf="plan.checked && price.priceDescription && (price.planPrice || price.price) && !price.isTotalSavings" class="price-breakdown row">
+                      <span id="priceDescription00" ng-bind="price.priceDescription" href="#" tooltips="tooltips" tooltip-lazy="false" tooltip-size="small" tooltip-animation="false" tooltip-html="3 Months" tooltip-show-trigger="mouseover click" tooltip-hide-trigger="mouseleave click" tooltip-close-button="x" tooltip-side="top" tooltip-try="0" tooltip-class="planNameTooltip" class="left price-desc-tool-tip col-xs-8">{{price.priceDescription}}</span>
+                      <span id="price00" class="pull-right ">${{price.price}}</span>
+                    </div>
+                  </ng-container>
+                  <div class="breakdown-total-separator"></div>
+                  <div ng-if="plan.checked && plan.planTotal.priceDescription && plan.planTotal.planTotalPrice" class="price-total">
+                    <span id="planTotal.priceDescription0" class="left price-breakdown-position">{{plan.planTotal.priceDescription}}</span>
+                    <span id="planTotal.price0" class="pull-right">${{plan.planTotal.price}}</span>
+                  </div>
+                  <button ng-click="nextClick()" id="planNxtBtn0" ng-hide="!plan.checked" class="btn btn-primary btn-block" aria-hidden="false">
+                      <div class="white text-uppercase">Select This Plan</div>
+                  </button>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+    </div>

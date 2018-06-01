@@ -1,0 +1,11 @@
+.angular-new-form-screen-message {
+    display: none !important;
+}
+@media only screen and (max-width: 767px) {
+    .angular-new-form-warpper {
+        display: none !important;
+    }
+    .angular-new-form-screen-message {
+        display: block !important;
+    }
+}

@@ -1,0 +1,61 @@
+<toast-message [toast]="toast"></toast-message>
+
+<div class="container">
+  <div class="angular-new-form-warpper clearfix">
+    <form [formGroup]="form">
+      <div class="col-left">
+        <div>
+          <textarea class="form-post-title" formControlName="title" autoResizeTextarea placeholder="Title (required)" required></textarea>
+          <div class="form-post-title-error" *ngIf="title.touched && title.errors">
+            <p class="mat-error ng-star-inserted small" *ngIf="title.errors.required">
+              <i class="fa fa-exclamation-circle"></i> You can't leave this empty.</p>
+          </div>
+        </div>
+        <textarea formControlName="description" style="display: none"></textarea>
+        <tinymce-editor [initialContent]="description.value" [elementId]="'my-editor-id'" (onEditorKeyup)="keyupHandlerFunction($event)">
+        </tinymce-editor>
+      </div>
+      <div class="col-right">
+        <div class="panel panel-default">
+          <div class="panel-heading">Featured image url</div>
+          <div class="panel-body">
+            <mat-form-field>
+              <input formControlName="image" type="text" matInput placeholder="Featured image url">
+            </mat-form-field>
+            <img *ngIf="image.value" [src]="image.value" class="img-fluid">
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">Category</div>
+          <div class="panel-body">
+            <mat-form-field>
+              <mat-select formControlName="category">
+                <mat-option *ngFor="let c of category" [value]="c.category">{{c.category}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">Tags</div>
+          <div class="panel-body">
+            <rl-tag-input formControlName="tags" placeholder="Tags"></rl-tag-input>
+          </div>
+        </div>
+      </div>
+      <div class="fixed-wrapper-btns create-btns clearfix">
+        <ng-container *ngIf="post && post.status === 'PUBLISHED'; else createBtns">
+            <button mat-raised-button color="primary" [disabled]="form.invalid" (click)="submit()">Update Post</button>
+        </ng-container>
+        <ng-template #createBtns>
+            <button mat-button color="primary" [disabled]="form.invalid" (click)="submit('DRAFT')">Save as Draft</button>
+            <button mat-raised-button color="primary" [disabled]="form.invalid" (click)="submit('PUBLISHED')">Publish</button>
+        </ng-template>
+      </div>
+    </form>
+  </div>
+  <div class="angular-new-form-screen-message text-center">
+    <h1>
+      Oops! is look like your screen size is not supported to edit this post. 
+    </h1>
+  </div>
+</div>

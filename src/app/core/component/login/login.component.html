@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="row mr-t-lg ">
+    <div class="col-md-6 ml-md-auto mr-md-auto">
+      <div class="card login-card">
+        <div class="card-header">
+          <h4>LOGIN</h4>
+          <p class="text-muted small">Please Enter your email and password below.</p>
+        </div>
+        <div class="card-body">
+          <mat-error *ngIf="form.errors">
+            <p *ngIf="form.errors.COULD_NOT_FOUND" class="text-center">
+              <span class="badge badge-pill badge-danger">
+                <i class="fa fa-exclamation-circle"></i> Couldn't find your Account</span>
+            </p>
+            <p *ngIf="form.errors.INCORRECT_ANSWER_ENTERED" class="text-center">
+              <span class="badge badge-pill badge-danger">
+                <i class="fa fa-exclamation-circle"></i> Invalid username or password</span>
+            </p>
+          </mat-error>
+          <form [formGroup]="form" (ngSubmit)="submit()">
+            <mat-form-field>
+              <input formControlName="email" type="email" matInput placeholder="Email" required>
+              <mat-error *ngIf="email.errors">
+                <p *ngIf="email.errors.required">
+                  <i class="fa fa-exclamation-circle"></i> You can't leave this empty.</p>
+                <p *ngIf="!email.errors.required && email.errors.email">
+                  <i class="fa fa-exclamation-circle"></i> Please enter correct email address.</p>
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field>
+              <input formControlName="passwd" [type]="hide ? 'password' : 'text'" matInput placeholder="Password" required>
+              <mat-error *ngIf="password.errors">
+                <p *ngIf="password.errors.required">
+                  <i class="fa fa-exclamation-circle"></i> You can't leave this empty.</p>
+                <p *ngIf="password.errors.minlength">
+                  <i class="fa fa-exclamation-circle"></i> Short passwords are easy to guess. Try one with at least {{password.errors.minlength.requiredLength}}
+                  characters.</p>
+              </mat-error>
+              <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+            </mat-form-field>
+            <button mat-raised-button color="primary" [disabled]="form.invalid">LOGIN</button>
+          </form>
+        </div>
+      </div>
+      <div class="text-right forgot-password-link-wrap">
+        <a routerLink="/forgotpassword" class="mat-button mat-primary">FORGOT PASSWORD?</a>
+      </div>
+    </div>
+  </div>
+</div>

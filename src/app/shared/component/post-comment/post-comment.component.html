@@ -1,0 +1,29 @@
+<div class="ui-add-comment">
+  <div class="ui-add-comment-header">
+    <h4>{{comments.length}} Comments</h4>
+  </div>
+  <div class="ui-add-comment-body">
+    <ng-container *ngFor="let c of comments">
+      <div class="comment-row">
+        <p>{{c.comment}}</p>
+        <div class="byline small">
+          <i>by
+            <a [routerLink]="['/author/', c.created_by, c.author[0].name | replaceWithDash]">{{c.author[0].name}}</a>
+          </i>
+          <i class="fa fa-circle"></i>
+          {{c.created_on | date: 'MMM d, y'}}
+        </div>
+      </div>
+    </ng-container>
+  </div>
+  <div class="ui-add-comment-footer">
+    <form *ngIf="auth.isLoggedIn(); else commentlogin" [formGroup]="form" (ngSubmit)="submit()">
+      <textarea formControlName="comment" class="form-control post-comment-form-control" rows="2" placeholder="Add Comment"></textarea>
+      <button mat-raised-button color="primary" [disabled]="form.invalid">Add Comment</button>
+    </form>
+    <ng-template #commentlogin>
+      Please <a href="javascript:void(0)" (click)="login()">login</a> for add Comment.
+    </ng-template>
+    
+  </div>
+</div>

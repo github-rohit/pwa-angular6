@@ -1,0 +1,24 @@
+<div class="post-filter">
+  <div class="d-flex">
+    <div class="col serach-col">
+      <div class="border-bottom">
+        <form class="row" [formGroup]="form" (ngSubmit)="filter()" (keyup.enter)="filter()">
+          <div class="col">
+            <input formControlName="query" type="search" placeholder="Search" class="post-filter-input">
+          </div>
+          <div class="align-self-center">
+             <button mat-icon-button color="primary" [disabled]="form.invalid"><mat-icon>search</mat-icon></button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="align-self-end">
+      <mat-form-field>
+        <mat-select [(value)]="selectedCategory" (selectionChange)="categoryChange($event.value)">
+          <mat-option [value]="''">All</mat-option>
+          <mat-option *ngFor="let c of categorys" [value]="c.category">{{ c.category }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+</div>

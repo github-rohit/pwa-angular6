@@ -1,0 +1,43 @@
+<article class="post-card d-flex flex-wrap align-content-between">
+  <div class="w-100">
+      <div *ngIf="post.image; else defImage" class="post-img" [style.background-image]="getImageUrl(post.image)"></div>
+      <ng-template #defImage>
+          <div class="post-img-bg">
+              <img alt="nirmalrohit.com" src="/assets/images/logo_blue.svg">
+          </div>
+      </ng-template>
+      <div class="byline small row">
+          <div class="col align-self-center">
+            <span *ngIf="displayName">
+              <i>BY
+                <a [routerLink]="['/author/', post.created_by, post.author[0].name | replaceWithDash]">{{post.author[0].name}}</a>
+              </i>
+              <i class="fa fa-circle"></i>
+            </span>
+            {{post.created_on | date: 'MMM d, y'}}
+          </div>
+        </div>      
+      <div class="post-title">
+          <h2><a [routerLink]="['/post', post._id, post.title | replaceWithDash]" [queryParams]="isOwner">{{post.title}}</a></h2>   
+      </div>
+      <div class="post-category">
+          <span *ngIf="post.category && post.category.toString() !== 'Uncategorized' && post.category.toString() !== ''">
+              <a [routerLink]="['/']" [queryParams]="{category: c}" *ngFor="let c of post.category">
+                <span class="badge badge-pill badge-secondary">{{c}}</span>
+              </a>
+            </span>    
+      </div>    
+  </div>
+  <div class="d-flex justify-content-between align-items-center w-100">
+    <div>
+        <a mat-button color="primary" [routerLink]="['/post', post._id, post.title | replaceWithDash]" class="read-more"><b>READ MORE</b></a>
+    </div>
+    <div>
+        <ng-container *ngIf="isOwner">
+            <a class="small" [routerLink]="['/admin/post', post._id]" [queryParams]="{status: post.status.toLowerCase()}">
+              <b>EDIT</b>
+            </a>
+        </ng-container>
+    </div>  
+  </div>
+</article>

@@ -1,0 +1,70 @@
+<div class="container">
+  <div class="row mr-t-lg ">
+    <div class="col-md-10 ml-md-auto mr-md-auto" *ngIf="success; else formContainer">
+      <h1>VERIFICATION EMAIL SENT</h1>
+      <h3 class="family-roboto-light">We've sent an email to
+        <i class="text-brand">{{email.value}}</i>. Click the link in the email to verify your address.</h3>
+    </div>
+    <ng-template #formContainer>
+      <div class="col-md-6 ml-md-auto mr-md-auto">
+        <div class="card login-card">
+          <div class="card-header">
+            <h4>SIGN UP</h4>
+            <p class="text-muted small">Hello and Welecome! Tell us a bit about you</p>
+          </div>
+          <div class="card-body">
+            <form [formGroup]="form" (ngSubmit)="submit()">
+              <mat-form-field>
+                <input formControlName="email" type="email" matInput placeholder="Email" required>
+                <mat-error *ngIf="email.errors">
+                  <p *ngIf="email.errors.Unique">
+                    <i class="fa fa-exclamation-circle"></i> This email id
+                    <b>{{email.value }}</b> already registered with us.</p>
+                  <p *ngIf="email.errors.required">
+                    <i class="fa fa-exclamation-circle"></i> You can't leave this empty.</p>
+                  <p *ngIf="!email.errors.required && email.errors.email">
+                    <i class="fa fa-exclamation-circle"></i> Please enter correct email address.</p>
+                </mat-error>
+              </mat-form-field>
+              <mat-form-field>
+                <input formControlName="name" type="text" matInput placeholder="Full Name" required>
+                <mat-error *ngIf="name.errors">
+                  <p *ngIf="name.errors.required">
+                    <i class="fa fa-exclamation-circle"></i> You can't leave this empty.</p>
+                  <p *ngIf="name.errors.minlength">
+                    <i class="fa fa-exclamation-circle"></i> Please enter at least {{name.errors.minlength.requiredLength}} characters.</p>
+                </mat-error>
+              </mat-form-field>
+              <mat-form-field>
+                <input formControlName="passwd" [type]="hide ? 'password' : 'text'" matInput placeholder="Password" required>
+                <mat-error *ngIf="password.errors">
+                  <p *ngIf="password.errors.required">
+                    <i class="fa fa-exclamation-circle"></i> You can't leave this empty.</p>
+                  <p *ngIf="password.errors.minlength">
+                    <i class="fa fa-exclamation-circle"></i> Short passwords are easy to guess. Try one with at least {{password.errors.minlength.requiredLength}}
+                    characters.</p>
+                </mat-error>
+                <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+              </mat-form-field>
+              <mat-form-field>
+                <input formControlName="passwd_again" [type]="hide ? 'password' : 'text'" matInput placeholder="Re type password" required>
+                <mat-error *ngIf="passwordAgain.errors">
+                  <p *ngIf="passwordAgain.errors.required">
+                    <i class="fa fa-exclamation-circle"></i> You can't leave this empty.</p>
+                  <p *ngIf="passwordAgain.errors.MatchPassword">
+                    <i class="fa fa-exclamation-circle"></i> These passwords don't match. Try again?</p>
+                  <p *ngIf="passwordAgain.errors.minlength">
+                    <i class="fa fa-exclamation-circle"></i> Short passwords are easy to guess. Try one with at least {{passwordAgain.errors.minlength.requiredLength}}
+                    characters.</p>
+                </mat-error>
+                <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+              </mat-form-field>
+              <p class="text-muted small">By Sign up in via any of the options below, you agree to our Terms of Service.</p>
+              <button mat-raised-button color="primary" [disabled]="form.invalid">SIGN UP</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </div>
+</div>

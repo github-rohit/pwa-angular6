@@ -1,0 +1,41 @@
+@media only screen and (max-width: 767px) {
+    .edit-post {
+        display: none !important;
+    }
+}
+
+@media only screen and (max-width: 650px) {
+    .post-card h2 {
+        font-size: 1.2rem;
+    }
+    .post-card .col-image {
+        min-width: 3em;
+        max-width: 9em;
+    }
+    .post-card .col-image + .col {
+        padding-left: 0;
+    }
+    .post-card .col-image img {
+        max-height: 6em;
+    }
+    .post-card  .excerpt {
+        display: none !important;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .post-card .col-image {
+        flex-basis: initial;
+        max-width: 100%;
+        padding-left: 15px;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+    .post-card .col-image img {
+        max-width: 100%;
+        max-height: 250px;
+    }
+    .post-card .col-image + .col {
+        padding-left: 15px;;
+    }
+}

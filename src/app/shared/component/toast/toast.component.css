@@ -1,0 +1,84 @@
+.toast-container {
+    position: fixed;
+    top: 75px;
+    right: 32px;
+    z-index: 1000;
+    -webkit-animation: appear .3s ease-in-out;
+    animation: appear .3s ease-in-out;
+}
+.toast {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    position: relative;
+    box-sizing: border-box;
+    background: #3c9351;
+    color: #fff;
+    border-radius: 3px;
+    line-height: 1.5;
+    overflow: hidden;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    font-size: 14px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2), 0 0 56px rgba(0,0,0,0.15);
+}
+.toast .toast-icon {
+    background: #537994;
+    color: #fff;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: baseline;
+    -ms-flex-align: baseline;
+    align-items: baseline;
+    width: 47px;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    border-radius: 3px 0 0 3px;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    -ms-flex-item-align: stretch;
+    align-self: stretch;
+}
+.toast .toast-icon .gridicon {
+    margin-top: 12px;
+    fill: #FFF;
+}
+.toast .toast-icon {
+    background: #4ab866;
+    border-radius: 3px 0 0 3px;
+}
+.toast .toast-content {
+    padding: 13px;
+    -ms-flex-preferred-size: auto;
+    flex-basis: auto;
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+}
+.toast .toast-dismiss {
+    padding: 6px 16px 0;
+    opacity: .54;
+    cursor: pointer;
+    outline: none;
+}
+.toast .toast-dismiss .gridicon {
+    fill: #FFF;
+}
+.toast .toast-dismiss:hover {
+    opacity: 1;
+}
+.toast-success {
+    background: #4ab866;
+}
+.toast-success .toast-icon {
+    background: #3c9351;
+}
+.toast-error {
+    background: #d94f4f;
+}
+.toast-error .toast-icon {
+    background: #ae3f3f;
+}

@@ -1,0 +1,4 @@
+<ng-container *ngIf="length > 10">
+  <mat-paginator [length]="length" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions" (page)="pageChange($event)">
+  </mat-paginator>
+</ng-container>

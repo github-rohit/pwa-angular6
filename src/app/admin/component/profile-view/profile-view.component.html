@@ -1,0 +1,132 @@
+<div class="container">
+  <div class="row">
+    <div class="col ml-md-auto mr-md-auto">
+      <div class="">
+        <div class="card-body profile-container" *ngIf="user">
+          <div class="profile-container-left">
+            <img src="/assets/images/user.png">
+          </div>
+          <div>
+            <div class="info">
+              <h2>{{user.name}}</h2>
+              <p title="email">
+                <i class="fa fa-envelope-o"></i> {{ user.email }}</p>
+              <p title="Website" *ngIf="user.website; else website">
+                <i class="fa fa-wpforms"></i>
+                <a href="{{user.website}}" target="_blank">{{user.website}}</a>
+              </p>
+              <ng-template #website>
+                <p>
+                  <a routerLink="/admin/profile/update">
+                    <i class="fa fa-wpforms"></i> Add your website link</a>
+                </p>
+              </ng-template>
+              <p title="Location" *ngIf="user.location; else location">
+                <i class="fa fa-map-marker"></i> {{user.location}}</p>
+              <ng-template #location>
+                <p>
+                  <a routerLink="/admin/profile/update">
+                    <i class="fa fa-map-marker"></i> Add your location</a>
+                </p>
+              </ng-template>
+            </div>
+            <div class="about-me">
+              <h4 _ngcontent-c2="">ABOUT ME</h4>
+              <p *ngIf="user.aboutme; else about">{{user.aboutme}}</p>
+              <ng-template #about>
+                <p>
+                  <a routerLink="/admin/profile/update">Tell us a little bit about yourself</a>
+                </p>
+              </ng-template>
+            </div>
+            <div class="social-media">
+              <h4 _ngcontent-c2="">SOCIAL MEDIA</h4>
+
+              <p *ngIf="user.facebook; else facebook">
+                <a href="//www.facebook.com/{{user.facebook}}" target="_blank">
+                  <i class="fa fa-facebook-f"></i>/{{user.facebook}}</a>
+              </p>
+              <ng-template #facebook>
+                <p>
+                  <a routerLink="/admin/profile/update">
+                    <i class="fa fa-facebook-f"></i> Add your facebook link</a>
+                </p>
+              </ng-template>
+
+              <p *ngIf="user.twitter; else twitter">
+                <a href="//www.twitter.com/{{user.twitter}}" target="_blank">
+                  <i class="fa fa-twitter"></i>/{{user.twitter}}</a>
+              </p>
+              <ng-template #twitter>
+                <p>
+                  <a routerLink="/admin/profile/update">
+                    <i class="fa fa-twitter"></i> Add your twitter link</a>
+                </p>
+              </ng-template>
+
+              <p *ngIf="user.google_plus; else google_plus">
+                <a href="//www.googleplus.com/{{user.google_plus}}" target="_blank">
+                  <i class="fa fa-google-plus"></i>/{{user.twitter}}</a>
+              </p>
+              <ng-template #google_plus>
+                <p>
+                  <a routerLink="/admin/profile/update">
+                    <i class="fa fa-google-plus"></i> Add your twitter link</a>
+                </p>
+              </ng-template>
+
+              <p *ngIf="user.linkedIn; else linkedIn">
+                <a href="//www.linkedIn.com/{{user.linkedIn}}" target="_blank">
+                  <i class="fa fa-linkedin"></i>/{{user.linkedIn}}</a>
+              </p>
+              <ng-template #linkedIn>
+                <p>
+                  <a routerLink="/admin/profile/update">
+                    <i class="fa fa-linkedin"></i> Add your linkedin link</a>
+                </p>
+              </ng-template>
+
+              <p *ngIf="user.instagram else instagram">
+                <a href="//www.instagram.com/{{user.instagram}}" target="_blank">
+                  <i class="fa fa-instagram"></i>/{{user.instagram}}</a>
+              </p>
+              <ng-template #instagram>
+                <p>
+                  <a routerLink="/admin/profile/update">
+                    <i class="fa fa-instagram"></i> Add your instagram link</a>
+                </p>
+              </ng-template>
+
+              <p *ngIf="user.tumblr; else tumblr">
+                <a [routerLink]="['//www.tumblr.com/', 'user.tumblr']" target="_blank">
+                  <i class="fa fa-tumblr"></i>/{{user.tumblr}}</a>
+              </p>
+              <ng-template #tumblr>
+                <p>
+                  <a routerLink="/admin/profile/update">
+                    <i class="fa fa-tumblr"></i> Add your tumblr link</a>
+                </p>
+              </ng-template>
+
+              <p *ngIf="user.pinterest; else pinterest">
+                <a href="//www.pinterest.com/{{user.pinterest}}" target="_blank">
+                  <i class="fa fa-pinterest-p"></i>/{{user.pinterest}}</a>
+              </p>
+              <ng-template #pinterest>
+                <p>
+                  <a routerLink="/admin/profile/update">
+                    <i class="fa fa-pinterest-p"></i> Add your pinterest link</a>
+                </p>
+              </ng-template>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <span class="floating-plus">
+    <a routerLink="/admin/profile/update" mat-fab color="primary">
+      <mat-icon aria-label="Example icon-button with a heart icon">create</mat-icon>
+    </a>
+  </span>
+</div>

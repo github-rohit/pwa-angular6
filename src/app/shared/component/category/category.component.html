@@ -1,0 +1,8 @@
+<ng-container *ngIf="category">
+    <h5>Categories</h5>
+    <ul class="category-nav">
+      <li *ngFor="let c of category">
+        <a [routerLink]="['/']" [queryParams]="{category: c.category}">{{c.category}}</a>
+      </li>
+    </ul>
+</ng-container>

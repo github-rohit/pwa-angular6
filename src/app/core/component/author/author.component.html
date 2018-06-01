@@ -1,0 +1,36 @@
+<div class="profile-container-bg clearfix">
+  <div class="container">
+    <div class="profile-container" *ngIf="user">
+      <div class="profile-container-left">
+        <img src="/assets/images/user.png">
+      </div>
+      <div>
+        <div class="info">
+          <h2>{{user.name}}</h2>
+          <p title="email">
+            <i class="fa fa-envelope-o"></i> {{ user.email }}
+          </p>
+          <p title="Website" *ngIf="user.website">
+            <i class="fa fa-wpforms"></i>
+            <a href="{{user.website}}" target="_blank">{{user.website}}</a>
+          </p>
+
+          <p title="Location" *ngIf="user.location">
+            <i class="fa fa-map-marker"></i> {{user.location}}
+          </p>
+          <p *ngIf="user.aboutme">{{user.aboutme}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <ng-container *ngFor="let post of posts">
+      <div class="col-md-4 col-sm-6 post-container">
+        <post-card [post]="post"></post-card>
+      </div>
+    </ng-container>
+  </div>
+<post-paginator [length]="length"></post-paginator>
+</div>

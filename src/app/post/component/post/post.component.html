@@ -1,0 +1,19 @@
+<div class="container">
+  <post-filter [selectedCategory]="selectedCategory" [search-query]="searchQuery"></post-filter>
+  <ng-container *ngIf="norecord">
+    <div class="row mr-t-lg ">
+      <div class="col">
+        <h1>:( OOPS</h1>
+        <h3 class="family-roboto-light">No record found.</h3>
+      </div>
+    </div>
+  </ng-container>
+  <div class="row">
+  <ng-container *ngFor="let post of posts">
+    <div class="col-md-4 col-sm-6 post-container">
+      <post-card [post]="post" [displayName]="true"></post-card>
+    </div>
+  </ng-container>
+  </div>
+  <post-paginator [length]="length"></post-paginator>
+</div>

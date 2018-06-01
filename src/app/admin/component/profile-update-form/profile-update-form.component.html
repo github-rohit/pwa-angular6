@@ -1,0 +1,69 @@
+<toast-message [toast]="toast">
+</toast-message>
+<div class="container">
+  <div class="row">
+    <div class="col ml-md-auto mr-md-auto">
+      <div class="" *ngIf="user">
+        <div class="card-body profile-container">
+          <div class="profile-container-left">
+            <label class="upload-image-link" for="uploadProfileImage">Upload Image</label>
+            <input id="uploadProfileImage" type="file" [imageToBase64]="form.controls.profileImage" class="hidden-file-type"/>
+            <img [src]="form.value.profileImage ? form.value.profileImage : '/assets/images/user.png'" />
+          </div>
+          <div>
+            <h2>{{user.name}}</h2>
+            <p>
+              <i class="fa fa-envelope-o"></i> {{user.email}}</p>
+            <form [formGroup]="form" (ngSubmit)="submit()">
+              <input type="hidden" formControlName="profileImage" />
+              <mat-form-field>
+                <textarea formControlName="aboutme" matInput autoResizeTextarea placeholder="About me"></textarea>
+              </mat-form-field>
+              <mat-form-field>
+                <input formControlName="website" type="url" matInput placeholder="website">
+              </mat-form-field>
+              <mat-form-field>
+                <mat-select formControlName="gender" placeholder="Gender" [value]="user.gender">
+                  <mat-option value="male">Male</mat-option>
+                  <mat-option value="female">Female</mat-option>
+                  <mat-option value="other">Other</mat-option>
+                </mat-select>
+              </mat-form-field>
+              <mat-form-field>
+                <input formControlName="location" type="text" matInput placeholder="Location">
+              </mat-form-field>
+
+              <div class="social-media">
+                <h4>SOCIAL MEDIA</h4>
+                <mat-form-field>
+                  <input formControlName="facebook" type="text" matInput placeholder="Facebook">
+                </mat-form-field>
+                <mat-form-field>
+                  <input formControlName="twitter" type="text" matInput placeholder="Twitter">
+                </mat-form-field>
+                <mat-form-field>
+                  <input formControlName="google_plus" type="text" matInput placeholder="Google Plus">
+                </mat-form-field>
+                <mat-form-field>
+                  <input formControlName="linkedIn" type="text" matInput placeholder="LinkedIn">
+                </mat-form-field>
+                <mat-form-field>
+                  <input formControlName="instagram" type="text" matInput placeholder="Instagram">
+                </mat-form-field>
+                <mat-form-field>
+                  <input formControlName="tumblr" type="text" matInput placeholder="Tumblr">
+                </mat-form-field>
+                <mat-form-field>
+                  <input formControlName="pinterest" type="text" matInput placeholder="Pinterest">
+                </mat-form-field>
+              </div>
+              <div class="fixed-wrapper-btns">
+                <button mat-raised-button color="primary">UPDATE</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
