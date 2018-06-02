@@ -48,8 +48,8 @@
     "tinymce": "^4.7.4",
     "typescript": "2.7.2",
     "validator": "^9.2.0",
-    "zone.js": "~0.8.26",
-    "workbox-cli": "^3.2.0"
+    "workbox-cli": "^3.2.0",
+    "zone.js": "~0.8.26"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.6.6",
