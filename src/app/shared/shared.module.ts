@@ -24,7 +24,6 @@ import { PostFilterComponent } from './component/post-filter/post-filter.compone
 import { PostPaginatorComponent } from './component/post-paginator/post-paginator.component';
 import { NotFoundComponent } from './component/not-found/not-found.component';
 import { ImageToBase64Directive } from './directive/image-to-base64.directive';
-import { PriceComponent } from './component/price/price.component';
 
 @NgModule({
   imports: [
@@ -46,8 +45,7 @@ import { PriceComponent } from './component/price/price.component';
     PostFilterComponent,
     PostPaginatorComponent,
     NotFoundComponent,
-    ImageToBase64Directive,
-    PriceComponent
+    ImageToBase64Directive
   ],
   exports: [
     MatComponentModule,
@@ -61,8 +59,7 @@ import { PriceComponent } from './component/price/price.component';
     PostFilterComponent,
     PostPaginatorComponent,
     NotFoundComponent,
-    ImageToBase64Directive,
-    PriceComponent
+    ImageToBase64Directive
   ],
   providers: [
     PostService,

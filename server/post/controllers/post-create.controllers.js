@@ -1,5 +1,6 @@
 const { Post } = require('../models/post');
 const { POST_STATUS } = require('../../config/config');
+const notification = require("../../push-notification/controllers/push-notification.controllers");
 const _ = require('lodash');
 
 module.exports = (req, res) => {
@@ -9,6 +10,7 @@ module.exports = (req, res) => {
 
     const post = new Post(body);
     post.save().then(()=> {
+        notification(post);
         res.send(post);
     }).catch(e => {
         res.status(400).send(e);

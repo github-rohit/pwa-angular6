@@ -35,7 +35,7 @@ export class DataService {
 
   create(resource) {
     return this.http.post(this.url, resource)
-    .pipe(map((response: any) => response.json()), catchError(this.handleError));
+    .pipe(map((response: any) => response), catchError(this.handleError));
   }
 
   update(id, resource) {
