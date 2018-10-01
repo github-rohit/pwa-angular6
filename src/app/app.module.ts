@@ -51,7 +51,10 @@ import { SharedModule } from './shared/shared.module';
         component: ResetPasswordComponent,
         canActivate: [NotAuthGuard]
       },
-      {path: '**', component: NotFoundComponent}
+      {
+        path: '**', 
+        component: NotFoundComponent
+      }
     ])
   ],
   providers: [{
