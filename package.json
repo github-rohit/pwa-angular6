@@ -43,7 +43,7 @@
     "lodash": "^4.17.4",
     "mongodb": "^3.0.1",
     "mongoose": "^5.0.0",
-    "rxjs": "^6.2.0",
+    "rxjs": "6.0.0",
     "sendmail": "^1.2.0",
     "tinymce": "^4.7.4",
     "typescript": "2.7.2",
